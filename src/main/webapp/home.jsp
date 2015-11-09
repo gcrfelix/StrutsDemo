@@ -6,8 +6,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <script type="text/javascript" language="javascript" src="ajax1.js"></script>
-        <script type="text/javascript" language="javascript" src="json_sans_eval.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap/css/bootstrap.min.css"/>
+		<script src="js/jquery-1.11.3.js"></script>
         <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
         <link href="cartCss.css" type="text/css" rel="stylesheet"></link>
         <script>
@@ -55,13 +55,15 @@
         </script>
     </head>
     <body>
-        <div>
-	        <button onclick="loginFacebook()">FB Login</button>
-        </div>
-        <div id="hiddenJump">
-        	<form action="content.do" id="successForm" method="post">
-        		<input type="hidden" name="accessToken" id="accessToken" value=""></input>
-        	</form>
+    	<div class="container">
+	        <div style="text-align: center;">
+		        <button class="btn btn-primary btn-lg btn-block" onclick="loginFacebook()">FB Login</button>
+	        </div>
+	        <div id="hiddenJump">
+	        	<form action="content.do" id="successForm" method="post">
+	        		<input type="hidden" name="accessToken" id="accessToken" value=""></input>
+	        	</form>
+	        </div>
         </div>
     </body>
 </html>
