@@ -5,18 +5,14 @@
 
 <struts-config>
 
-	<form-beans>
-		<form-bean name="helloWorldForm" 
-			type="com.mkyong.common.form.HelloWorldForm"/>
-	</form-beans>
-
 	<action-mappings>
-		<action path="/helloWorld"
-			type="com.mkyong.common.action.HelloWorldAction"
-			name="helloWorldForm">
-			<forward name="success" path="/HelloWorld.jsp"/>
-			
+		<action path="/home" type="com.pageManager.action.HomeAction">
+			<forward name="success" path="/home.jsp" />
 		</action>
+		<action path="/content" type="com.pageManager.action.ContentAction">
+			<forward name="success" path="/content.jsp" />
+		</action>
+		
 	</action-mappings>
 
 </struts-config>
