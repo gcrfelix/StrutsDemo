@@ -41,11 +41,8 @@
                         	    
                         })
                         */
-                     alert('Welcome!  Fetching your information.... ');
                      FB.api('/me', function(response) {
                         console.log(response);
-                        alert('Good to see you, ' + response.name + '.');
-//                        window.location = 'index_1.jsp'
                      });
                     } else {
                      alert('User cancelled login or did not fully authorize.');

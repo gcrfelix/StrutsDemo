@@ -12,8 +12,6 @@ public class HomeAction extends Action{
 	
 	public ActionForward execute(ActionMapping mapping,ActionForm form,
 			HttpServletRequest request,HttpServletResponse response) throws Exception {
-		System.out.println("~~~~");
-		request.setAttribute("key", "Information");
 		return mapping.findForward("success");
 	}
 	
