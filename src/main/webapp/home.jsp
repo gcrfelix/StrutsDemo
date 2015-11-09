@@ -7,7 +7,6 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <script type="text/javascript" language="javascript" src="ajax1.js"></script>
-        <script type="text/javascript" language="javascript" src="cart.js"></script>
         <script type="text/javascript" language="javascript" src="json_sans_eval.js"></script>
         <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
         <link href="cartCss.css" type="text/css" rel="stylesheet"></link>
@@ -34,9 +33,11 @@
             function loginFacebook() {
                 FB.login(function(response) {
                     if (response.authResponse) {
-                    	window.location.replace("content.do");
+                    	//window.location.replace("content.do");
+                    	$("#accessToken").val(response.authResponse.accessToken);
+                    	$("#successForm").submit();
                     	/*
-                        $.post('cart.do',{accessToken: response.authResponse.accessToken},function(ret){
+                        $.post('content.do',{accessToken: response.authResponse.accessToken},function(ret){
                         	    
                         })
                         */
@@ -56,6 +57,11 @@
     <body>
         <div>
 	        <button onclick="loginFacebook()">FB Login</button>
+        </div>
+        <div id="hiddenJump">
+        	<form action="content.do" id="successForm" method="post">
+        		<input type="hidden" name="accessToken" id="accessToken" value=""></input>
+        	</form>
         </div>
     </body>
 </html>
