@@ -3,6 +3,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<<<<<<< HEAD
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Content page</h1>
+=======
 	<link rel="stylesheet" type="text/css" href="css/bootstrap/css/bootstrap.min.css"/>
 	<script src="js/jquery-1.11.3.js"></script>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -18,5 +25,6 @@
 			$("#test").text("js work well");
 		});
 	</script>
+>>>>>>> 56a95c12311cdcbeb829f05a6efe2a3e36901e09
 </body>
 </html>
