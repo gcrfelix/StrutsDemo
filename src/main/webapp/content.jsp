@@ -9,8 +9,10 @@
 	<title>Insert title here</title>
 </head>
 <body>
-	<h1 class="well">Content page</h1>
-	<div id="test"></div>
+	<div class="container">
+		<h1 class="well" style="text-align: center;">Content page</h1>
+		<div id="test"></div>
+	</div>
 	<script type="text/javascript">
 		$(function(){
 			$("#test").text("js work well");
