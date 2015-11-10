@@ -18,6 +18,7 @@
 		postType = request.getParameter("post_type");
 	}
 	
+	String accessToken = (String)request.getAttribute("accessToken");
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -72,7 +73,12 @@
 					  <div class="panel-heading">
 					    <h3 class="panel-title" style="height: 30px;">
 					    	<span ><%=postType.toUpperCase() %> Posts</span>
-					    	<a class="pull-right btn btn-primary" href="post.do">New <%=postType.toUpperCase() %> Post</a>
+					    	<form action="post.do" id="successForm" method="post">
+	        					<input type="hidden" name="accessToken" id="accessToken" value="<%=accessToken %>"></input>
+	        					<input type="hidden" name="postType" id="postType" value="<%=postType %>"></input>
+	        					<input type="hidden" name="pageNo" id="pageNo" value="<%=pageNo %>"></input>
+						    	<input type="submit" class="pull-right btn btn-primary" value="New <%=postType.toUpperCase() %> Post"></input>
+	        				</form>
 					    </h3>
 					  </div>
 					  <div class="panel-body">
@@ -83,7 +89,7 @@
 				for(FBPost post : currentPage.getPosts()) {
 			if ((post.isPublished() && postType.equals("published")) || (!post.isPublished() && postType.equals("unpublished"))){
 		%>
-		<div class="row" style="border: 1px grey dotted;">
+		<div class="row">
 			<div class="col-md-1">
 			</div>
 			<div class="col-md-8">
