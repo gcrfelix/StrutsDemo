@@ -12,6 +12,9 @@
 		<action path="/content" type="com.pageManager.action.ContentAction">
 			<forward name="success" path="/content.jsp" />
 		</action>
+		<action path="/post" type="com.pageManager.action.PostAction">
+			<forward name="success" path="/post.jsp" />
+		</action>
 		
 	</action-mappings>
 
