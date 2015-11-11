@@ -13,7 +13,7 @@
 		pageNo = new Integer(pageNoStr);
 	}
 	
-	String postType = "published";
+	String postType = "Published";
 	if (request.getParameter("post_type") != null) {
 		postType = request.getParameter("post_type");
 	}
@@ -42,7 +42,7 @@
 					class="<%if (i==pageNo){%>
 		  			<%="active"%>
 		  			<%}%>">
-					<a href="content.do?page=<%=i%>&post_type=published"><%=pages.get(i).getName()%></a>
+					<a href="content.do?page=<%=i%>&post_type=Published"><%=pages.get(i).getName()%></a>
 				</li>
 				<%
 					}
@@ -55,16 +55,16 @@
 				<div class="col-md-2">
 					<ul class="nav nav-pills nav-stacked">
 						<li role="presentation"
-							class="<%if (postType.equals("published")){%>
+							class="<%if (postType.equals("Published")){%>
 				  			<%="active"%>
 				  			<%}%>">
-							<a href="content.do?page=<%=pageNo%>&post_type=published">Published</a>
+							<a href="content.do?page=<%=pageNo%>&post_type=Published">Published</a>
 						</li>
 						<li role="presentation"
-							class="<%if (postType.equals("unpublished")){%>
+							class="<%if (postType.equals("Unpublished")){%>
 				  			<%="active"%>
 				  			<%}%>">
-							<a href="content.do?page=<%=pageNo%>&post_type=unpublished">Unpublished</a>
+							<a href="content.do?page=<%=pageNo%>&post_type=Unpublished">Unpublished</a>
 						</li>
 					</ul>
 				</div>
@@ -73,11 +73,11 @@
 					  <div class="panel-heading">
 				    	<form action="post.do" id="successForm" method="post">
 						    <h3 class="panel-title" style="height: 30px;">
-						    	<span ><%=postType.toUpperCase() %> Posts</span>
+						    	<span ><%=postType %> Posts</span>
 		        					<input type="hidden" name="accessToken" id="accessToken" value="<%=accessToken %>"></input>
 		        					<input type="hidden" name="postType" id="postType" value="<%=postType %>"></input>
 		        					<input type="hidden" name="pageNo" id="pageNo" value="<%=pageNo %>"></input>
-							    	<input type="submit" class="pull-right btn btn-primary" value="New <%=postType.toUpperCase() %> Post"></input>
+							    	<input type="submit" class="pull-right btn btn-primary" value="New <%=postType %> Post"></input>
 						    </h3>
         				</form>
 					  </div>
@@ -87,7 +87,7 @@
 		<%
 			  	FBPage currentPage = pages.get(pageNo);
 				for(FBPost post : currentPage.getPosts()) {
-			if ((post.isPublished() && postType.equals("published")) || (!post.isPublished() && postType.equals("unpublished"))){
+			if ((post.isPublished() && postType.equals("Published")) || (!post.isPublished() && postType.equals("Unpublished"))){
 		%>
 		<div class="row">
 			<div class="col-md-1">

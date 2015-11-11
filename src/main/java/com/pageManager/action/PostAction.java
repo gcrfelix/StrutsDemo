@@ -48,7 +48,7 @@ public class PostAction extends Action {
 				if (Integer.parseInt(pageNo) == i) {
 					FacebookClient client = new DefaultFacebookClient(accounts.get(
 							i).getAccessToken(), VERSION_2_5);
-					if (postType.equals("published")) {
+					if (postType.equals("Published")) {
 						FacebookType publishMessageResponse = client.publish(
 								"me/feed", FacebookType.class,
 								Parameter.with("message", postContent));
