@@ -12,12 +12,12 @@
 	if (pageNoStr != null) {
 		pageNo = new Integer(pageNoStr);
 	}
-	
+	String pageName = pages.get(pageNo).getName();
 	String postType = "Published";
 	if (request.getParameter("post_type") != null) {
 		postType = request.getParameter("post_type");
 	}
-	
+	 
 	String accessToken = (String)request.getAttribute("accessToken");
 %>
 
@@ -28,7 +28,7 @@
 	href="css/bootstrap/css/bootstrap.min.css" />
 <script src="js/jquery-1.11.3.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Page Management</title>
 </head>
 
 <body>
@@ -77,6 +77,7 @@
 		        					<input type="hidden" name="accessToken" id="accessToken" value="<%=accessToken %>"></input>
 		        					<input type="hidden" name="postType" id="postType" value="<%=postType %>"></input>
 		        					<input type="hidden" name="pageNo" id="pageNo" value="<%=pageNo %>"></input>
+		        					<input type="hidden" name="pageName" id="pageName" value="<%=pageName %>"></input>
 							    	<input type="submit" class="pull-right btn btn-primary" value="New <%=postType %> Post"></input>
 						    </h3>
         				</form>

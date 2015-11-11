@@ -37,6 +37,7 @@ public class PostAction extends Action {
 		String pageNo = request.getParameter("pageNo");
 		String postType = request.getParameter("postType");
 		String postContent = request.getParameter("postContent");
+		String pageName = request.getParameter("pageName");
 		
 		boolean redirect = false;
 		if(postContent != null && !postContent.equals("")) {
@@ -46,6 +47,9 @@ public class PostAction extends Action {
 			List<Account> accounts = myAccounts.getData();
 			for (int i = 0; i < accounts.size(); i++) {
 				if (Integer.parseInt(pageNo) == i) {
+					if(pageName == null || pageName.equals("")) {
+						pageName = accounts.get(i).getName();
+					}
 					FacebookClient client = new DefaultFacebookClient(accounts.get(
 							i).getAccessToken(), VERSION_2_5);
 					if (postType.equals("Published")) {
@@ -65,6 +69,7 @@ public class PostAction extends Action {
 
 		request.setAttribute("accessToken", accessToken);
 		request.setAttribute("pageNo", pageNo);
+		request.setAttribute("pageName", pageName);
 		request.setAttribute("postType", postType);
 		request.setAttribute("redirect", redirect);
 		return mapping.findForward("success");

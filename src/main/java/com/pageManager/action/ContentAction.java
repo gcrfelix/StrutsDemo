@@ -68,18 +68,18 @@ public class ContentAction extends Action {
 				for (Post post : posts.getData()) {
 //					Connection<Insight> insights = client.fetchConnection(
 //							post.getId() + "/insights/post_impressions_unique", Insight.class);
-					int views = 1;
+					int views = 0;
 //					for (Insight insight : insights.getData()) {
 //						views += insight.getValues().get(0).getInt("value");
 //					}
 					FBPost regular = new FBPost(post.getMessage(), views, true);
 					fbPage.addPost(regular);
 				}
-				System.out.println();
+
 				for (Post ad : ads.getData()) {
 //					Connection<Insight> insights = client.fetchConnection(
 //							ad.getId() + "/insights/post_impressions_unique", Insight.class);
-					int views = 1;
+					int views = 0;
 //					for (Insight insight : insights.getData()) {
 //						views += insight.getValues().get(0).getInt("value");
 //					}

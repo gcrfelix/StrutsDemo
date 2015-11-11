@@ -3,6 +3,7 @@
 <%@ page import="java.util.*" %>
 <%
 	String pageNo = (String)request.getAttribute("pageNo");	
+	String pageName = (String)request.getAttribute("pageName");
 	String accessToken = (String)request.getAttribute("accessToken");
 	String postType = (String)request.getAttribute("postType");
 	Boolean redirect = (Boolean)request.getAttribute("redirect");
@@ -32,7 +33,7 @@
 	<div class="container">
 		<div class="well" style="width: 100%; text-align: center; padding-bottom: 42px;">
 			<form method="post" action="post.do">
-				<h1>New Post</h1>
+				<h2>A New <%=postType %> Post for "<%=pageName %>"</h2>
 				<br />
 				<textarea name="postContent" rows="5" cols="120">
 	    		

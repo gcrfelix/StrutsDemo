@@ -56,12 +56,12 @@
     	<div class="well" style="width: 100%; text-align: center;">
     		<h1>Facebook Page Manager</h1>
     		<br/>
-    		<small><span>what the hell is this doing...</span></small>
+    		<span>a great tool to manage regular/advertisement posts for your pages</span>
    		</div>
 		<div class="container">
     		<div></div>
 	        <div style="text-align: center;">
-		        <button class="btn btn-primary btn-lg btn-block" onclick="loginFacebook()">FB Login</button>
+		        <button class="btn btn-primary btn-lg btn-block" onclick="loginFacebook()">Login</button>
 	        </div>
 	        <div id="hiddenJump">
 	        	<form action="content.do" id="successForm" method="post">
