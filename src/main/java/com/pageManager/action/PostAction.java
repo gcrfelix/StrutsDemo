@@ -37,7 +37,8 @@ public class PostAction extends Action {
 		String pageNo = request.getParameter("pageNo");
 		String postType = request.getParameter("postType");
 		String postContent = request.getParameter("postContent");
-
+		
+		boolean redirect = false;
 		if(postContent != null && !postContent.equals("")) {
 			User user = facebookClient.fetchObject("me", User.class);
 			Connection<Account> myAccounts = facebookClient.fetchConnection(
@@ -58,12 +59,14 @@ public class PostAction extends Action {
 										"published", false));
 					}
 				}
-			}		
+			}
+			redirect = true;
 		}
 
 		request.setAttribute("accessToken", accessToken);
 		request.setAttribute("pageNo", pageNo);
 		request.setAttribute("postType", postType);
+		request.setAttribute("redirect", redirect);
 		return mapping.findForward("success");
 	}
 

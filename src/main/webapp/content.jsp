@@ -71,15 +71,15 @@
 				<div class="col-md-10">
 					<div class="panel panel-default">
 					  <div class="panel-heading">
-					    <h3 class="panel-title" style="height: 30px;">
-					    	<span ><%=postType.toUpperCase() %> Posts</span>
-					    	<form action="post.do" id="successForm" method="post">
-	        					<input type="hidden" name="accessToken" id="accessToken" value="<%=accessToken %>"></input>
-	        					<input type="hidden" name="postType" id="postType" value="<%=postType %>"></input>
-	        					<input type="hidden" name="pageNo" id="pageNo" value="<%=pageNo %>"></input>
-						    	<input type="submit" class="pull-right btn btn-primary" value="New <%=postType.toUpperCase() %> Post"></input>
-	        				</form>
-					    </h3>
+				    	<form action="post.do" id="successForm" method="post">
+						    <h3 class="panel-title" style="height: 30px;">
+						    	<span ><%=postType.toUpperCase() %> Posts</span>
+		        					<input type="hidden" name="accessToken" id="accessToken" value="<%=accessToken %>"></input>
+		        					<input type="hidden" name="postType" id="postType" value="<%=postType %>"></input>
+		        					<input type="hidden" name="pageNo" id="pageNo" value="<%=pageNo %>"></input>
+							    	<input type="submit" class="pull-right btn btn-primary" value="New <%=postType.toUpperCase() %> Post"></input>
+						    </h3>
+        				</form>
 					  </div>
 					  <div class="panel-body">
 					  

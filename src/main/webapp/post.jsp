@@ -5,6 +5,7 @@
 	String pageNo = (String)request.getAttribute("pageNo");	
 	String accessToken = (String)request.getAttribute("accessToken");
 	String postType = (String)request.getAttribute("postType");
+	Boolean redirect = (Boolean)request.getAttribute("redirect");
 %>
 
 <?xml version="1.0" encoding="utf-8"?>
@@ -16,6 +17,18 @@
 	<script src="js/jquery-1.11.3.js"></script>
 </head>
 <body>
+	<form action="content.do" id="successForm" method="post">
+		<input type="hidden" name="page" id="page" value="<%=pageNo %>"></input>
+		<input type="hidden" name="post_type" id="post_type" value="<%=postType %>"></input>
+   		<input type="hidden" name="accessToken" id="accessToken" value="<%=accessToken %>"></input>
+   	</form>
+	<script>
+		$(function(){
+			if(<%=redirect %>) {
+				$("#successForm").submit();
+			}
+		});
+	</script>
 	<div class="container">
 		<div class="well" style="width: 100%; text-align: center; padding-bottom: 42px;">
 			<form method="post" action="post.do">
@@ -32,6 +45,8 @@
 	        	<input type="hidden" name="pageNo" id="pageNo" value="<%=pageNo %>"></input>
 			</form>
 		</div>
+		
 	</div>
+	
 </body>
 </html>
