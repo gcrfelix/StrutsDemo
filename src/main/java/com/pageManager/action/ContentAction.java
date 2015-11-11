@@ -61,23 +61,29 @@ public class ContentAction extends Action {
 				
 				Connection<Post> posts = client.fetchConnection("me/feed",
 						Post.class);
-				Connection<Post> ads = client.fetchConnection(
-						"me/promotable_posts", Post.class);
 				
+				Connection<Post> ads = client.fetchConnection(
+						"me/promotable_posts", Post.class, Parameter.with("is_published", false));
 				
 				for (Post post : posts.getData()) {
 //					Connection<Insight> insights = client.fetchConnection(
-//							p1.getId() + "/insights/post_impressions_unique", Insight.class);
+//							post.getId() + "/insights/post_impressions_unique", Insight.class);
+					int views = 1;
 //					for (Insight insight : insights.getData()) {
-//						System.out.println(insight.getTitle() + " || "
-//								+ insight.getValues());
+//						views += insight.getValues().get(0).getInt("value");
 //					}
-					FBPost regular = new FBPost(post.getMessage(), 1, true);
+					FBPost regular = new FBPost(post.getMessage(), views, true);
 					fbPage.addPost(regular);
 				}
-				
+				System.out.println();
 				for (Post ad : ads.getData()) {
-					FBPost unpublished = new FBPost(ad.getMessage(), 1, false);
+//					Connection<Insight> insights = client.fetchConnection(
+//							ad.getId() + "/insights/post_impressions_unique", Insight.class);
+					int views = 1;
+//					for (Insight insight : insights.getData()) {
+//						views += insight.getValues().get(0).getInt("value");
+//					}
+					FBPost unpublished = new FBPost(ad.getMessage(), views, false);
 					fbPage.addPost(unpublished);
 				}
 				pages.add(fbPage);
@@ -85,16 +91,8 @@ public class ContentAction extends Action {
 		}
 		request.setAttribute("noPage", alert);
 		request.setAttribute("pages", pages);
+		request.setAttribute("accessToken", accessToken);
+		
 		return mapping.findForward("success");
 	}
-
-	// FacebookType publishMessageResponse
-	// = client1.publish("me/feed", FacebookType.class,
-	// Parameter.with("message", "Second Post!!!"));
-
-	// FacebookType publishAdResponse
-	// = client1.publish("me/feed", FacebookType.class,
-	// Parameter.with("message", "Second Advertisement!!!"),
-	// Parameter.with("published", false));
-
 }
