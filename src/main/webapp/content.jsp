@@ -49,8 +49,8 @@
 				%>
 			</ul>
 		</div>
-		
-		<div class="container-fluid"  style="margin-top: 10px;">
+
+		<div class="container-fluid" style="margin-top: 10px;">
 			<div class="row">
 				<div class="col-md-2">
 					<ul class="nav nav-pills nav-stacked">
@@ -70,59 +70,50 @@
 				</div>
 				<div class="col-md-10">
 					<div class="panel panel-default">
-					  <div class="panel-heading">
-				    	<form action="post.do" id="successForm" method="post">
-						    <h3 class="panel-title" style="height: 30px;">
-						    	<span ><%=postType %> Posts</span>
-		        					<input type="hidden" name="accessToken" id="accessToken" value="<%=accessToken %>"></input>
-		        					<input type="hidden" name="postType" id="postType" value="<%=postType %>"></input>
-		        					<input type="hidden" name="pageNo" id="pageNo" value="<%=pageNo %>"></input>
-		        					<input type="hidden" name="pageName" id="pageName" value="<%=pageName %>"></input>
-							    	<input type="submit" class="pull-right btn btn-primary" value="New <%=postType %> Post"></input>
-						    </h3>
-        				</form>
-					  </div>
-					  <div class="panel-body">
-					  
-			
-		<%
-			  	FBPage currentPage = pages.get(pageNo);
-				for(FBPost post : currentPage.getPosts()) {
-			if ((post.isPublished() && postType.equals("Published")) || (!post.isPublished() && postType.equals("Unpublished"))){
-		%>
-		<div class="row">
-			<div class="col-md-1">
-			</div>
-			<div class="col-md-8">
-				<div class="container-fluid well well-sm">
-					<div class="row">
-						<div class="col-md-6">
-							<span><%=post.getContent().substring(0, Math.min(post.getContent().length(), 100000)) %></span>
+					
+						<div class="panel-heading">
+							<form action="post.do" id="successForm" method="post">
+								<h3 class="panel-title" style="height: 30px;">
+									<span><%=postType%> Posts</span> 
+									<input type="hidden" name="accessToken" id="accessToken" value="<%=accessToken%>"></input>
+									<input type="hidden" name="postType" id="postType" value="<%=postType%>"></input> 
+									<input type="hidden" name="pageNo" id="pageNo" value="<%=pageNo%>"></input> 
+									<input type="hidden" name="pageName" id="pageName" value="<%=pageName%>"></input> 
+									<input type="submit" class="pull-right btn btn-primary" value="New <%=postType%> Post"></input>
+								</h3>
+							</form>
 						</div>
-						<div class="col-md-6"  style="text-align: center;">
-							<span><%="Number of Views: " + post.getViews()%></span>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<%
-			}}
-		%>
+					
+
+						<div class="panel-body">
+							<%
+								FBPage currentPage = pages.get(pageNo);
+														for(FBPost post : currentPage.getPosts()) {
+													if ((post.isPublished() && postType.equals("Published")) || (!post.isPublished() && postType.equals("Unpublished"))){
+							%>
+							<div class="row">
+								<div class="col-md-1"></div>
+								<div class="col-md-10">
+									<div class="container-fluid well well-sm">
+										<div class="row">
+											<div class="col-md-6">
+												<span><%=post.getContent().substring(0, Math.min(post.getContent().length(), 100000))%></span>
+											</div>
+											<div class="col-md-6" style="text-align: center;">
+												<span><%="Number of Views: " + post.getViews()%></span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<%
+								}}
+							%>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-
-	<script type="text/javascript">
-		$("#demo_nav li").click(function() {
-			var index = $(this).index();
-			$("#demo_nav li").removeClass("active");
-			$(this).addClass("active");
-			$("#nav_content").html($("#tab" + (index + 1)).html());
-		});
-	</script>
 </body>
 </html>

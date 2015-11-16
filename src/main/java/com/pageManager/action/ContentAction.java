@@ -20,6 +20,7 @@ import static com.restfb.Version.VERSION_2_5;
 import com.restfb.types.Account;
 import com.restfb.types.FacebookType;
 import com.restfb.types.Insight;
+import com.restfb.types.Page;
 import com.restfb.types.Post;
 import com.restfb.types.User;
 
@@ -57,6 +58,7 @@ public class ContentAction extends Action {
 				FacebookClient client = new DefaultFacebookClient(
 						account.getAccessToken(), VERSION_2_5);
 				User page = client.fetchObject("me", User.class);
+				fbPage.setPageID(page.getId());
 				fbPage.setName(page.getName());
 				
 				Connection<Post> posts = client.fetchConnection("me/feed",
@@ -70,9 +72,9 @@ public class ContentAction extends Action {
 //							post.getId() + "/insights/post_impressions_unique", Insight.class);
 					int views = 0;
 //					for (Insight insight : insights.getData()) {
-//						views += insight.getValues().get(0).getInt("value");
+//						views = insight.getValues().get(0).getInt("value");
 //					}
-					FBPost regular = new FBPost(post.getMessage(), views, true);
+					FBPost regular = new FBPost(post.getId(), post.getMessage(), views, true);
 					fbPage.addPost(regular);
 				}
 
@@ -81,9 +83,9 @@ public class ContentAction extends Action {
 //							ad.getId() + "/insights/post_impressions_unique", Insight.class);
 					int views = 0;
 //					for (Insight insight : insights.getData()) {
-//						views += insight.getValues().get(0).getInt("value");
+//						views = insight.getValues().get(0).getInt("value");
 //					}
-					FBPost unpublished = new FBPost(ad.getMessage(), views, false);
+					FBPost unpublished = new FBPost(ad.getId(), ad.getMessage(), views, false);
 					fbPage.addPost(unpublished);
 				}
 				pages.add(fbPage);

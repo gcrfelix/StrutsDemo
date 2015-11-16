@@ -47,7 +47,7 @@
                     } else {
                      alert('User cancelled login or did not fully authorize.');
                     }
-                }, {scope: 'public_profile,user_friends,email,user_events,user_managed_groups,user_posts,read_insights,read_audience_network_insights,manage_pages,publish_pages,publish_actions,pages_show_list,pages_manage_cta,pages_manage_leads,ads_read,ads_management'});
+                }, {scope: 'public_profile,user_friends,email,user_about_me,user_events,user_likes,user_managed_groups,user_posts,read_insights,read_audience_network_insights,manage_pages,publish_pages,publish_actions,pages_show_list,pages_manage_cta,pages_manage_leads,ads_read,ads_management'});
             }
         </script>
     </head>
@@ -56,7 +56,7 @@
     	<div class="well" style="width: 100%; text-align: center;">
     		<h1>Facebook Page Manager</h1>
     		<br/>
-    		<span>a great tool to manage regular/advertisement posts for your pages</span>
+    		<span style="color:brown">a great tool to manage regular/advertisement posts for your pages</span>
    		</div>
 		<div class="container">
     		<div></div>

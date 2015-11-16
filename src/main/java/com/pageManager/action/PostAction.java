@@ -2,6 +2,7 @@ package com.pageManager.action;
 
 import static com.restfb.Version.VERSION_2_5;
 
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -66,6 +67,7 @@ public class PostAction extends Action {
 			}
 			redirect = true;
 		}
+		
 
 		request.setAttribute("accessToken", accessToken);
 		request.setAttribute("pageNo", pageNo);
@@ -73,6 +75,11 @@ public class PostAction extends Action {
 		request.setAttribute("postType", postType);
 		request.setAttribute("redirect", redirect);
 		return mapping.findForward("success");
+		
+//		PrintWriter writer = response.getWriter();
+//		writer.println("success");
+//		writer.close();
+//		return null;
 	}
 
 }

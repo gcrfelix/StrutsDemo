@@ -15,7 +15,6 @@
 		<action path="/post" type="com.pageManager.action.PostAction">
 			<forward name="success" path="/post.jsp" />
 		</action>
-		
 	</action-mappings>
 
 </struts-config>

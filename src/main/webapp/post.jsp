@@ -33,20 +33,19 @@
 	<div class="container">
 		<div class="well" style="width: 100%; text-align: center; padding-bottom: 42px;">
 			<form method="post" action="post.do">
-				<h2>A New <%=postType %> Post for "<%=pageName %>"</h2>
-				<br />
+				<h4>A New <span style="font-size: 30px;"><%=postType %></span> Post for <span style="font-size: 30px;">"<%=pageName %>"</span></h4>
+				<br/>
 				<textarea name="postContent" rows="5" cols="120">
 	    		
 	    		</textarea>
 	    		
-				<br />
+				<br/>
 				<input type="submit" class="pull-right btn btn-primary" value="Post"></input>
 				<input type="hidden" name="accessToken" id="accessToken" value="<%=accessToken %>"></input>
 	        	<input type="hidden" name="postType" id="postType" value="<%=postType %>"></input>
 	        	<input type="hidden" name="pageNo" id="pageNo" value="<%=pageNo %>"></input>
 			</form>
-		</div>
-		
+		</div>		
 	</div>
 	
 </body>
